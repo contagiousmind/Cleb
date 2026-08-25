@@ -53,6 +53,13 @@
     padding: 10px 0;
 }
 
+.tileouter .tileinner  .total {
+    float:left;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
 .tileouter .tileinner .dataouter {
     float:left;
     width: 100%;

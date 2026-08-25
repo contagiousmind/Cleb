@@ -2,11 +2,11 @@
 var dataList = new Array();
 
 $(function () {
-    dataList.push(new data('Total', 45000, 40000));
-    dataList.push(new data('Most in a day', 650, 700));
-    dataList.push(new data('Days', 66, 65));
+    dataList.push(new data('Total', 27259, 27010));
+    dataList.push(new data('Most in a day 20260718', 833, 858));
+    dataList.push(new data('Daily Average', 247, 245));
 
-    
+
     BuildScreen();
 
 });
@@ -66,6 +66,15 @@ function AnimateBars() {
 
     }
 
+    // animate numbers...
+    $('.valueouter span').each(function() {
+        AnimateNumbers(this);
+    });
+    $('.total span').each(function() {
+        AnimateNumbers(this);
+    });
+    
+
 }
 
 function AddGradient() {
@@ -73,6 +82,17 @@ function AddGradient() {
     $('.rightouter').addClass('gradientcolor');
 }
 
+function AnimateNumbers(el) {
+    $({ Counter: 0 }).animate({
+        Counter: $(el).text().replace(',','')
+    }, {
+        duration: 4100,
+        easing: 'swing',
+        step: function () {
+            $(el).text(Math.ceil(this.Counter).toLocaleString());
+        }
+    })
+}
 
 
 
