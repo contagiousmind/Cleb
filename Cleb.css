@@ -1,1 +1,100 @@
+ 
+ :root {
+    /*--Default colors, set in theme tab if changed--*/
+    --background: #373737;
+    --textcolor1: #fff;
+    --textcolor2: #000;
+
+
+    --border: #d6d2d2;
+
+
+    --accentcolor1: #a434eb;
+    --accentcolor125: #a434eb50;
+    --accentcolor150: #a434eb50;
+    --accentcolor175: #a434eb;
+
+
+
+    --accentcolor2: #f4ff1c;
+    --accentcolor225: #f4ff1c30;
+    --accentcolor250: #f4ff1c30;
+    --accentcolor275: #f4ff1c;
+}
+ 
+ 
+ 
+ 
+ body {
+    background-color: var(--background);
+    color: var(--textcolor1);
+    font-size: 25px;
+ }
+
+
+.tileouter {
+    float:left;
+    width: 90%;
+    padding: 1%;
+    border-radius: 25px;
+    border: 3px solid var(--border);
+    margin: 3%;
+}
+
+.tileouter .tileinner {
+    float:left;
+    width: 100%;
+}
+
+.tileouter .tileinner  .title {
+    float:left;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.tileouter .tileinner .dataouter {
+    float:left;
+    width: 100%;
+}
+
+.tileouter .tileinner .dataouter span {
+    padding: 0 10px;
+}
+
+.tileouter .tileinner .dataouter .valueouter {
+    float:left;
+    text-align: center;
+
+    padding: 50px 0;
+    width:0;
+    transition: width ease-in-out 4s;
+    color: var(--textcolor1);
+    font-weight: 700;
+    border-radius: 0 25px 25px 0;
+    margin: 5px 0;
+}
+
+.tileouter .tileinner .dataouter .valueouter.left {
+    background: linear-gradient(-45deg, var(--accentcolor1), var(--accentcolor125), var(--accentcolor150), var(--accentcolor175));
+
+}
+
+.tileouter .tileinner .dataouter .valueouter.right {
+    background: linear-gradient(-45deg, var(--accentcolor2), var(--accentcolor225), var(--accentcolor250), var(--accentcolor275));
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
