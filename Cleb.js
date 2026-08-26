@@ -62,7 +62,7 @@ function AnimateBars() {
 
 
         // add gradient animation 4 seconds after...
-        window.setTimeout(AddGradient, 4000);
+        // window.setTimeout(AddGradient, 4000);
 
     }
 
@@ -78,8 +78,8 @@ function AnimateBars() {
 }
 
 function AddGradient() {
-    $('.leftouter').addClass('gradientcolor');
-    $('.rightouter').addClass('gradientcolor');
+    $('.valueouter left').addClass('gradientcolor');
+    //$('.rightouter').addClass('gradientcolor');
 }
 
 function AnimateNumbers(el) {

@@ -82,15 +82,16 @@
     margin: 5px 0;
 }
 
-.tileouter .tileinner .dataouter .valueouter.left {
-    background: linear-gradient(-45deg, var(--accentcolor1), var(--accentcolor125), var(--accentcolor150), var(--accentcolor175));
+/* .tileouter .tileinner .dataouter .valueouter.left {
+    background: linear-gradient(-45deg, #a434eb, #a434eb50, #a434eb50, #a434eb);
 
 }
+*/
 
 .tileouter .tileinner .dataouter .valueouter.right {
-    background: linear-gradient(-45deg, var(--accentcolor2), var(--accentcolor225), var(--accentcolor250), var(--accentcolor275));
-
-}
+    /* background: linear-gradient(-45deg, #f4ff1c, #f4ff1c30, #f4ff1c30, #f4ff1c); */
+    color: #000;
+} 
 
 
 

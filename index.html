@@ -7,35 +7,49 @@
         <title>Cleb</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-        <link href="Cleb.min.css" rel="stylesheet" type="text/css" />
-        <script src="Cleb.min.js" type="text/javascript"></script>
+        <link href="Cleb.css" rel="stylesheet" type="text/css" />
+        <script src="Cleb.js" type="text/javascript"></script>
+    
+        <style>
 
+                .gradientcolorleft {
+                    background: linear-gradient(-45deg, #8702da, #b97be0, #d7b3ee, #a434eb);
+
+                    background-size: 400% 400%;
+
+                    animation: gradient 10s ease infinite;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .gradientcolorright {
+                    background: linear-gradient(-45deg, #f2ff00, #d3da5c, #e7eb9f, #f4ff1c);
+
+                    background-size: 400% 400%;
+
+                    animation: gradient 10s ease infinite;
+                    margin: 0;
+                    padding: 0;
+                }
+
+
+                @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+
+                50% {
+                    background-position: 100% 50%;
+                }
+
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+        </style>
 
     </head>
-    <style>
-            .gradientcolor {
-                background-size: 400% 400%;
 
-                animation: gradient 15s ease infinite;
-                margin: 0;
-                padding: 0;
-            }
-
-
-            @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-    </style>
     <body>
 
 
@@ -50,12 +64,12 @@
                         <span>$TITLE$</span>
                     </div>
                     <div class="dataouter">
-                        <div class="valueouter left" id="Value1_$ID$">
+                        <div class="gradientcolorleft valueouter left" id="Value1_$ID$">
                             <span>$VALUE1$</span>
                         </div>
                     </div>
                     <div class="dataouter">
-                        <div class=" valueouter right" id="Value2_$ID$" >
+                        <div class=" gradientcolorright valueouter right" id="Value2_$ID$" >
                             <span>$VALUE2$</span>
                         </div>
                     </div>
