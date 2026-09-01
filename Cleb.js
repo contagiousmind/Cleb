@@ -2,16 +2,34 @@
 var dataList = new Array();
 
 $(function () {
-    dataList.push(new data('Total', 27259, 27010));
-    dataList.push(new data('Most in a day 20260718', 833, 858));
-    dataList.push(new data('Daily Average', 247, 245));
+    GetData('DataPoints', BuildScreen);
+
+    // dataList.push(new data('Total', 27259, 27010));
+    // dataList.push(new data('Most in a day 20260718', 833, 858));
+    // dataList.push(new data('Daily Average', 247, 245));
 
 
-    BuildScreen();
+    // BuildScreen();
 
 });
 
-function BuildScreen(){
+function BuildScreen(data){
+
+    for (i=1; i < data.values.length; i++) {
+
+        dataList.push(new dataPoint(data.values[i][0]        // display
+                        , data.values[i][1]             // C
+                        , data.values[i][2]             // S
+                        , data.values[i][3]             // Total
+                ));
+    
+    }
+
+    // dataList.push(new data('Total', 27259, 27010));
+    // dataList.push(new data('Most in a day 20260718', 833, 858));
+    // dataList.push(new data('Daily Average', 247, 245));
+
+
     var template = $("#Template_Tile").html();
     var html = '';
 
@@ -25,7 +43,7 @@ function BuildScreen(){
                         .replace(/\$TITLE\$/g, dataList[i].Label)
                         .replace(/\$VALUE1\$/g, dataList[i].V1.toLocaleString())
                         .replace(/\$VALUE2\$/g, dataList[i].V2.toLocaleString())
-                        .replace(/\$TOTAL\$/g, (dataList[i].V1 + dataList[i].V2).toLocaleString())
+                        .replace(/\$TOTAL\$/g, (dataList[i].Total).toLocaleString())
                 ;
     }
 
@@ -34,6 +52,7 @@ function BuildScreen(){
 
     AnimateBars();
 }
+
 
 function AnimateBars() {
     for (i = 0; i < dataList.length; i++) {
@@ -95,9 +114,37 @@ function AnimateNumbers(el) {
 }
 
 
+function GetData(sheetName, completeEvent) {
 
-function data(label, v1, v2) {
+        // photo's key - AIzaSyBnvRLQ5Wfv5MNb5q0APNsijA9xXpOYnaA
+    var aaa = 'AIzaSyBnvRLQ5Wfv5MNb5q0APNsijA9xXpOYnaA'; 
+    var spreadsheetId = '1_aLhYW9CZNwX_hFce-f7sOj-sjyNroAkOGMT4mrJfpU'; // Replace with your spreadsheet ID
+    // var sheetName = 'Sheet1'; // Replace with your sheet name
+    var url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${aaa}`;
+
+
+    Ajax(url, function(data) {
+        completeEvent.call('', data);
+        
+    }, '');
+}
+
+//https://github.com/orgs/community/discussions/108921
+function Ajax(url, completeEvent, args) {
+    $.ajax({
+        url: url,
+        type: 'GET',
+        success: function(data) {
+            completeEvent.call(this, data);
+        }
+    });
+}
+
+
+
+function dataPoint(label, v1, v2, total) {
     this.Label = label;
     this.V1 = v1;
     this.V2 = v2;
+    this.Total = total;
 }
